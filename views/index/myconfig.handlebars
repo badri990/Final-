@@ -1,0 +1,33 @@
+<h1 class="text-center mb-5">ჩემი თემები</h1>
+{{#if topics}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">სათაური</th>
+      <th scope="col">თარიღი</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	{{#each topics}}
+    <tr>
+      <th scope="row">1</th>
+      <td><a href="/topics/show/{{id}}">{{title}}</a></td>
+      <td>{{formatDate  topic.date 'MMMM Do YYYY'}}</td>
+      <td>
+      	<a href="/topics/edit/{{id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+      	<form action="/topics/{{id}}?_method=DELETE" method="post" id="delete_topic">
+      		<input type="hidden" name="_method" value="DELETE">
+      	<button  type="submit"class="btn btn-danger"><i class="fas fa-backspace"></i></button>
+      	</form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{else}}
+	<div class="alert alert-warning" role="alert">
+	  თემები არ მოიძებნა. <a href="/topics/add" class="alert-link">თემის დამატება</a>
+	</div>
+{{/if}}

@@ -1,0 +1,17 @@
+<h1 class="text-center mb-5">თემის ჩასწორება</h1>
+
+<form action="/topics/{{topic.id}}?_method=PUT" method="post">
+<input type="hidden" name="_method" value="PUT">
+  <div class="form-group mb-5">
+    <label for="title">სათაური</label>
+    <input type="text" class="form-control" name="title" placeholder="თემის სათაური..." value="{{topic.title}}">
+  </div>
+
+  <div class="form-group mb-5">
+    <label for="topic">თემის შინაარსი</label>
+    <textarea class="form-control" name="topic" rows="3" placeholder="აღწერეთ თემა..." >{{topic.body}}</textarea>
+  </div>
+
+  <input type="submit" class="btn btn-outline-warning" value="შენახვა">
+
+</form>

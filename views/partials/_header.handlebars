@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark mb-3" style="background-color: purple;">
   <div class="container">
+    <img src="/images/logo.png" class="card-img-top logo" alt="...">
     <a class="navbar-brand" href="/">GeoForum</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -16,7 +17,6 @@
         <li class="nav-item"><a class="nav-link" href="/topics"><i class="fas fa-comment"></i> თემები</a></li>
         {{#if user}}
         <li class="nav-item" ><a class="nav-link" href="/myconfig"><i class="fas fa-user"></i> {{user.firstName}}</a></li>
-        <li class="nav-item"><a class="nav-link" href="/mytopics"><i class="fas fa-cogs"></i> ჩემი თემები</a></li>
         <li class="nav-item" ><a class="nav-link" href="/auth/logout"><i class="fas fa-sign-out-alt"></i> გამოსვლა</a></li>
         {{else}}
         <li class="nav-item" ><a class="nav-link" href="/auth/google"><i class="fab fa-google"></i> შესვლა</a></li>

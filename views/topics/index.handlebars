@@ -1,0 +1,19 @@
+<ul class="list-unstyled ">
+  {{#each topics}}
+  <li class="media mb-3">
+    <img src="{{user.image}}" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{title}} 
+      	{{#if user}}
+      	<a href="/topics/edit/{{id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+      	{{/if}}
+      	<a href="/topics/show/{{id}}" class="btn btn-warning"><i class="fas fa-angle-double-right">
+      	</i> თემის ნახვა</a> 
+      </h5>
+
+      <h6>{{user.firstName}} {{user.lastName}}</h6>
+    </div>
+  </li>
+{{/each}}
+</ul>
+

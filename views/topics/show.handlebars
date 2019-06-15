@@ -1,0 +1,40 @@
+<div class="card mb-5">
+  <h6 class="card-header"><img src="{{topic.user.image}}">{{topic.user.firstName}} {{topic.user.lastName}} - {{formatDate  topic.date 'MMMM Do YYYY, h:mm:ss a'}}</h6>
+  <div class="card-body">
+    <h5 class="card-title">{{topic.title}}</h5>
+    <p class="card-text">{{stripTags topic.body}}</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <h5>კომენტარები</h5>
+  </div>
+  <div class="card-body">
+  	{{#if user}}
+  		<h6>კომენტარის დამატება</h6>
+  		<form method="post" action="/topics/comment/{{topic.id}}">
+  			 <textarea name="commentBody" class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"></textarea>
+  			 <input type="submit" value="დამატება" class="btn btn-outline-warning">
+  		</form>
+
+  	{{else}}
+  		<div class="alert alert-warning" role="alert">
+		 კომენტარის დასატოვებლად გაიარეთ <a href="/auth/google">ავტორიზაცია</a>
+		</div>
+  	{{/if}}
+  	{{#each topic.comments}}
+  	<div class="media" id="commentDiv">
+	  <img src="{{commentUser.image}}" class="mr-3" alt="...">
+	  <div class="media-body">
+	    <h6 class="mt-0">{{commentUser.firstName}} {{commentUser.lastName}} - 
+	    {{formatDate  commentDate 'MMMM Do YYYY'}}</h6>
+	    {{commentBody}}
+	  </div>
+	</div>
+
+  	{{/each}}
+
+  </div>
+</div>
